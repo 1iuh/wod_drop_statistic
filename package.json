@@ -1,0 +1,57 @@
+{
+  "name": "webpack-userscript-template",
+  "description": "Build your UserScript with webpack",
+  "version": "0.0.2",
+  "author": {
+    "name": "Trim21",
+    "email": "trim21me@gmail.com"
+  },
+  "eslintIgnore": [
+    "dist/*.js",
+    "node_modules"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .ts,.js src",
+    "preversion": "npm run lint",
+    "postversion": "git push --follow-tags",
+    "analize": "npm_config_report=true npm run build",
+    "build": "webpack --mode production --config config/webpack.config.production.cjs",
+    "dev": "webpack --mode development --config config/webpack.config.dev.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Trim21/webpack-userscript-template"
+  },
+  "private": true,
+  "dependencies": {
+    "axios": "0.21.1",
+    "axios-userscript-adapter": "0.1.4",
+    "jquery": "3.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.14.6",
+    "@babel/preset-env": "7.14.5",
+    "@typescript-eslint/eslint-plugin": "4.27.0",
+    "@typescript-eslint/parser": "4.27.0",
+    "babel-loader": "8.2.2",
+    "browserslist": "4.16.6",
+    "css-loader": "5.2.6",
+    "eslint": "7.29.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-import": "2.23.4",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "5.1.0",
+    "eslint-plugin-standard": "4.1.0",
+    "less": "4.1.1",
+    "less-loader": "10.0.0",
+    "style-loader": "2.0.0",
+    "ts-loader": "9.2.3",
+    "typescript": "4.3.4",
+    "userscript-metadata-webpack-plugin": "0.1.0",
+    "webpack": "5.39.1",
+    "webpack-bundle-analyzer": "4.4.2",
+    "webpack-cli": "4.7.2",
+    "webpack-livereload-plugin": "3.0.1",
+    "webpack-merge": "5.8.0"
+  }
+}

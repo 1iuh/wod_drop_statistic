@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "schedule:monthly",
+    ":masterIssue",
+    "config:base"
+  ],
+  "prHourlyLimit": 0,
+  "rangeStrategy": "pin",
+  "lockFileMaintenance": {
+    "extends": [
+      "schedule:weekly"
+    ],
+    "automerge": true,
+    "enabled": true
+  },
+  "postUpdateOptions": [
+    "npmDedupe"
+  ],
+  "separateMajorMinor": false,
+  "updateNotScheduled": false,
+  "packageRules": [
+    {
+      "groupName": "deps",
+      "depTypeList": [
+        "dependencies",
+        "devDependencies"
+      ]
+    }
+  ]
+}
