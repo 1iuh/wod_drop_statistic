@@ -1,4 +1,3 @@
-
 //-----------------------------------------------------------------------------
 // [WoD] Extra Statistics
 // Copyright (c) Fenghou, Tomy, DotIN13, ShakeSS
@@ -3443,6 +3442,7 @@
 
     function GetPage(nRepId, nLevel, nRepPage, bFirstRead) {
         var XmlHttp = new XMLHttpRequest();
+        XmlHttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
         XmlHttp.onreadystatechange = function() {
             try {
@@ -3456,15 +3456,12 @@
                 alert("XMLHttpRequest.onreadystatechange(): " + e);
             }
         };
+        var param = "session_hero_id=100649&wod_post_id=yte8m46nhuaaepkydc7k22okc7a810vb&wod_post_world=CD&pay_from_group_cash_box=0&put_purchases_to=go_lager&klasse_id=11&klasse_name=%E8%90%A8%E6%BB%A1&rasse_id=5&rasse_name=%E4%B8%81%E5%9B%BE%E5%AE%89%E8%9B%AE%E6%97%8F&gruppe_id=99787&gruppe_name=%E5%8F%8D%E5%A4%8D%E8%BF%9B%E5%87%BA%E7%A5%88%E5%A6%B9%E7%9A%84%E6%AF%8F%E4%B8%80%E6%AC%A1%E9%83%BD%E4%B8%8D%E6%98%AF%E6%B9%BF%E6%89%8B%E8%80%8C%E5%BD%92%EF%BC%81&clan_id=356&clan_name=%E5%81%B6%E7%BC%98%E7%8A%B9%E6%9C%AA%E5%BF%98%E5%A4%9A%E6%83%85&stufe=10&heldenname=%E8%82%8B%E9%AA%A8%E7%B2%89%E7%A2%8E%E8%80%85&spielername=x.1iuh&report_id%5B0%5D=1817356&items%5B0%5D=%E8%8E%B7%E5%BE%97%E7%89%A9%E5%93%81"
 
-        var URL = location.protocol + "//" + location.host + "/wod/spiel/dungeon/report.php" +
-            "?cur_rep_id=" + nRepId +
-            "&gruppe_id=&current_level=" + nLevel +
-            "&REPORT_PAGE=" + nRepPage +
-            "&IS_POPUP=1";
-        Stat.ShowProgress();
-        XmlHttp.open("GET", URL, true);
-        XmlHttp.send(null);
+        var URL = location.protocol + "//" + location.host + "/wod/spiel/dungeon/report.php"
+        //Stat.ShowProgress();
+        XmlHttp.open("POST", URL, true);
+        XmlHttp.send(param);
     }
 
 
