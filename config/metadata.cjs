@@ -1,14 +1,15 @@
 const { author, dependencies, repository, version } = require('../package.json')
 
 module.exports = {
-  name: 'webpack-userscript-template',
-  namespace: 'https://trim21.me/',
+  name: 'WoD_Drops_Statistics',
+  namespace: '1iuh',
   version: version,
   author: author,
   source: repository.url,
   // 'license': 'MIT',
   match: [
-    'http://www.example.com/*'
+    'http*://*.world-of-dungeons.org/wod/spiel//dungeon/report.php*',
+    'http*://*.world-of-dungeons.org/wod/spiel/dungeon/report.php*'
   ],
   require: [
     `https://cdn.jsdelivr.net/npm/jquery@${dependencies.jquery}/dist/jquery.min.js`,
@@ -19,7 +20,7 @@ module.exports = {
     'GM.xmlHttpRequest'
   ],
   connect: [
-    'httpbin.org'
+      'www.wodgroup.top'
   ],
   'run-at': 'document-end'
 }
