@@ -1,7 +1,7 @@
 {
-  "name": "webpack-userscript-template",
-  "description": "Build your UserScript with webpack",
-  "version": "0.0.1",
+  "name": "wod_drops_statistics",
+  "description": "用于统计游戏wod中的特产掉落",
+  "version": "0.1.0",
   "author": {
     "name": "1iuh",
     "email": "liuhsmail@gmail.com"
@@ -20,13 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Trim21/webpack-userscript-template"
+    "url": "https://github.com/1iuh/wod_drop_statistic"
   },
   "private": true,
   "dependencies": {
     "axios": "0.21.1",
     "axios-userscript-adapter": "0.1.4",
     "jquery": "3.6.0",
+    "nanobar": "^0.4.2",
     "typescript-language-server": "^0.5.4"
   },
   "devDependencies": {
