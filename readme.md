@@ -1,58 +1,36 @@
-# This is a project help you build userscript with webpack
+# WoD Drop Statistic
 
-Just [use this git repo as a template](https://github.com/Trim21/webpack-userscript-template/generate).
+网页游戏 [WoD](world-of-dungeons.org) 物品掉落统计插件。
 
-[中文说明](./readme.cn.md)
+A loot record plugin for the webgame, [WoD](world-of-dungeons.org). 
 
-## dev
+## 特性 Feature
 
-1. Allow Tampermonkey's access to local file URIs [tampermonkey/faq](https://tampermonkey.net/faq.php?ext=dhdg#Q204)
-2. install deps with `npm i` or `npm ci`.
-3. `npm run dev` to start your development.
-4. open `webpack-userscript-template/dist/index.dev.user.js` in your Chrome and install it with your userscript manager.
+- 特产掉落统计
 
-this userscript's meta contains `// @require file://path/to/dist/index.prod.user.js`,
-it will run the code in `index.prod.user.js`,
-which take [src/js/index.ts](./src/js/index.ts) as entry point.
+- 基于地城的结果筛选
 
-every times you edit your metadata, you'll have to install it again,
-because Tampermonkey don't read it from dist every times.
+*更多特性即将到来...*
 
-5. edit [src/js/index.ts](./src/js/index.ts) with es6, you can even import css or less files. You can use scss if you like.
-6. go wo <https://www.example.com/> and open console, you'll see it's working.
 
-livereload is default enabled, use [this chrome extension](https://chrome.google.com/webstore/detail/jnihajbhpnppcggbcgedagnkighmdlei)
 
-## TypeScript
+## 安装 Install
 
-use typescript as normal, see [example](src/js/example.ts)
+使用该插件需要先安装 油猴（GreaseMonkey） 插件。油猴的安装请参考游戏内论坛 [post:15879910] 或 [chrome商店](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo) 。
 
-## dependencies
 
-There are two ways to using a package on npm.
 
-### UserScript way
+## 使用 How to use
 
-like original UserScript way, you will need to add them to your [user script metadata's require section](./config/metadata.js#L13-L17) , and exclude them in [config/webpack.config.base.js](./config/webpack.config.base.js#L21-L25)
+安装插件后在 【团队-战报】 页面的右上侧能看到新增按钮。点击【查看统计表】 可看到当前队伍的特产掉落情况。
 
-### Webpack way
+<img src="doc\show_statistic.png" alt="show_statis" style="zoom: 50%;" />
 
-just install a package and import it in your js file. webpack will pack them with in your final production js file.
+查看战报时，点击【获得物品】，将自动将战报中物品加入统计。
 
-## build
+<img src="doc\count.png" alt="count" style="zoom: 50%;" />
 
-```bash
-npm run build
-```
+也可点击【全量统计】将【战报】页面上所有物品结果加入统计。
 
-`dist/index.prod.user.js` is the finally script. you can manually copy it to greaskfork for deploy.
+<img src="doc\count_all.png" alt="count_all" style="zoom: 50%;" />
 
-## auto deploy
-
-[github actions](./.github/workflows/deploy.yaml#L36) will deploy production userscript to gh-pages branch.
-
-[example](https://github.com/Trim21/webpack-userscript-template/tree/gh-pages)
-
-[deployed](https://trim21.github.io/webpack-userscript-template/)
-
-You can auto use greskfork's auto update function.
